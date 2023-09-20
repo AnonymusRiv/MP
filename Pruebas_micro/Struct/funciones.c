@@ -3,7 +3,10 @@
 #include "funciones.h"
 
 void ReservaMemoria(struct Persona **vector, int tam){
-    *vector=(struct Persona*)malloc(tam*sizeof(struct Persona));
+    if((*vector=(struct Persona*)malloc(tam*sizeof(struct Persona)))==NULL){    //Poner comprobación de reserva de memoria *IMPORTANTE*
+        printf("\nError al reservar memoria.");
+        exit(-1);
+    }
 }
 
 void Rellena(struct Persona *vector, int tam){
